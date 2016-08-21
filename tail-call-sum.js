@@ -1,6 +1,6 @@
 // Sumatoria en forma Tail Recursive
 const sum = (n, acc) => {
- if (n <= 1) return acc;
+ if (n < 1) return acc;
  else return sum(n-1, acc + n);
 };
 

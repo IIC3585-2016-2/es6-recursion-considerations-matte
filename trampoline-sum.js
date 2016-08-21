@@ -8,7 +8,7 @@ const trampoline = (fn) => {
 
 // Si n =< 1 retorna un numero, si no retorna una funcion
 const sum = (n, acc) => () => {
-  if (n <= 1) return acc;
+  if (n < 1) return acc;
   else return sum(n-1, acc + n);
 };
 
