@@ -1,3 +1,4 @@
+
 const trampoline = (fn) => {
   while (typeof fn === 'function') {
     fn = fn();
@@ -15,5 +16,5 @@ const sum = (n, acc) => () => {
 // No hay problemas
 console.log(trampoline(sum(10, 0)));
 
-// No hay problemas tampoco! :D
+// No hay problemas! :D
 console.log(trampoline(sum(160000, 0)));
