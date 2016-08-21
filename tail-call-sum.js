@@ -1,7 +1,9 @@
+"use strict";
+
 // Sumatoria en forma Tail Recursive
 const sum = (n, acc) => {
- if (n < 1) return acc;
- else return sum(n-1, acc + n);
+  if (n < 1) return acc;
+  else return sum(n-1, acc + n);
 };
 
 
