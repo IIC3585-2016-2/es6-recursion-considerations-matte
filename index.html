@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <script src="./tail-call-sum.js"></script>
-  <script>
-    function handleClick() {
-      try {
-        var value = parseInt(document.getElementById('sum-value').value);
-        document.getElementById("return-value").innerHTML = sum(value, 0);
-      } catch(error) {
-        document.getElementById("return-value").innerHTML = error;
+  <head>
+    <script src="tail-call-sum.js"></script>
+    <script>
+      function handleClick() {
+        try {
+          var value = parseInt(document.getElementById('sum-value').value);
+          document.getElementById("return-value").innerHTML = sum(value, 0);
+        } catch(error) {
+          document.getElementById("return-value").innerHTML = error;
+        }
       }
-    }
-    </script>
+      </script>
+  </head>
   <body>
     <input id= "sum-value" type="number" min=0>
     <button onclick="handleClick()">Calculate summatory</button>
