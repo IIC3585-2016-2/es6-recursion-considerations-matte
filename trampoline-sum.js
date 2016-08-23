@@ -6,15 +6,16 @@ const trampoline = (fn) => {
   return fn;
 };
 
-// Si n =< 1 retorna un numero, si no retorna una funcion
-const sum = (n, acc) => () => {
-  if (n < 1) return acc;
-  else return sum(n-1, acc + n);
+// Si n == 0 retorna un numero,
+// si no retorna una funcion
+const trampolineSum = (n, acc) => () => {
+  if (n == 0) return acc;
+  else return trampolineSum(n-1, acc + n);
 };
 
 
 // No hay problemas
-console.log(trampoline(sum(10, 0)));
+console.log(trampoline(trampolineSum(10, 0)));
 
 // No hay problemas! :D
-console.log(trampoline(sum(160000, 0)));
+console.log(trampoline(trampolineSum(160000, 0)));

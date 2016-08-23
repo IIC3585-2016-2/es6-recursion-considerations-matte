@@ -2,11 +2,19 @@
 <html>
   <head>
     <script src="tail-call-sum.js"></script>
+    <script src="normal-sum.js"></script>
+    <script src="trampoline-sum.js"></script>
     <script>
-      function handleClick() {
+      function handleClick(technique) {
         try {
           var value = parseInt(document.getElementById('sum-value').value);
-          document.getElementById("return-value").innerHTML = sum(value, 0);
+          var sum = function(n) {
+            if (technique === 'normal') return normalSum(n);
+            else if (technique === 'tail') return tailCallSum(n, 0);
+            else if (technique === 'trampoline') return trampoline(trampolineSum(n, 0));
+          }
+
+          document.getElementById("return-value").innerHTML = sum(value);
         } catch(error) {
           document.getElementById("return-value").innerHTML = error;
         }
@@ -15,7 +23,9 @@
   </head>
   <body>
     <input id= "sum-value" type="number" min=0>
-    <button onclick="handleClick()">Calculate summatory</button>
+    <button onclick="handleClick('normal')">Normal Sum</button>
+    <button onclick="handleClick('tail')">Tail Recursive Sum</button>
+    <button onclick="handleClick('trampoline')">Trampoline Sum</button>
     <p id="return-value">
        Return value.
     </p>
